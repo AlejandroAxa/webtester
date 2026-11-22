@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Glosario de pentesting web: XSS, IDOR, bineo y más | Alejandro Carlos</title>
+  <meta name="description" content="Glosario de pentesting web en español: qué significan XSS, IDOR, inyección SQL, bineo, denial of wallet, CSP y otros términos, explicados para dueños de negocio.">
+  <meta name="theme-color" content="#161616">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:title" content="Glosario de pentesting web">
+  <meta property="og:description" content="Los términos del pentesting web explicados sin tecnicismos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Inicio"><strong>Pentesting</strong><span>web</span></a>
+      <nav class="nav" aria-label="Principal">
+        <ul class="nav-links">
+          <li><a href="index.html#servicios">Servicios</a></li>
+          <li><a href="index.html#casos">Casos</a></li>
+          <li><a href="index.html#proceso">Proceso</a></li>
+          <li><a href="glosario.html" aria-current="page">Glosario</a></li>
+          <li><a href="index.html#preguntas">Preguntas</a></li>
+        </ul>
+        <a class="lang" href="en/index.html" hreflang="en" lang="en" aria-label="English version">EN</a>
+        <a class="btn btn-primary btn-sm btn-cta" href="#contacto" data-wa="llamada"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span>Agendar llamada</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="g-hero" aria-labelledby="g-title">
+      <div class="container g-hero-grid">
+        <div>
+          <p class="breadcrumb"><a href="index.html">Inicio</a> / Glosario</p>
+          <h1 id="g-title">Glosario de pentesting web.</h1>
+          <p class="hero-lead">44 términos que va a escuchar en un informe de seguridad, explicados para quien dirige el negocio, no solo para quien programa.</p>
+        </div>
+      </div>
+    </section>
+
+    <nav class="g-letters" aria-label="Letras del glosario">
+      <div class="container">
+        <ul>
+          <li><a href="#letra-A">A</a></li>
+          <li><a href="#letra-B">B</a></li>
+          <li><a href="#letra-C">C</a></li>
+          <li><a href="#letra-D">D</a></li>
+          <li><a href="#letra-E">E</a></li>
+          <li><a href="#letra-F">F</a></li>
+          <li><a href="#letra-H">H</a></li>
+          <li><a href="#letra-I">I</a></li>
+          <li><a href="#letra-J">J</a></li>
+          <li><a href="#letra-O">O</a></li>
+          <li><a href="#letra-P">P</a></li>
+          <li><a href="#letra-R">R</a></li>
+          <li><a href="#letra-S">S</a></li>
+          <li><a href="#letra-W">W</a></li>
+          <li><a href="#letra-X">X</a></li>
+          <li><a href="#letra-Z">Z</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container g-body">
+      <section class="g-group" id="letra-A" aria-labelledby="h-A">
+        <h2 id="h-A" class="g-letter">A</h2>
+        <dl class="g-list">
+          <div class="g-entry" id="alcance">
+            <dt>Alcance<span class="g-alias" lang="en">Scope</span></dt>
+            <dd><p>Lista acordada por escrito de qué sistemas, URLs y tipos de prueba entran en el pentest y cuáles no.</p><p class="g-biz"><span>En su negocio</span>Todo lo que quede fuera del alcance no se toca, aunque parezca vulnerable.</p></dd>
+          </div>
+          <div class="g-entry" id="ataque-de-diccionario">
+            <dt>Ataque de diccionario<span class="g-alias" lang="en">Dictionary attack</span></dt>
+            <dd><p>Probar contraseñas tomadas de listas de claves comunes o filtradas, en lugar de todas las combinaciones posibles.</p><p class="g-biz"><span>En su negocio</span>Así se entró al sistema en el caso de la empresa de encuestas.</p></dd>
+          </div>
+        </dl>
+      </section>
+      <section class="g-group" id="letra-B" aria-labelledby="h-B">
+        <h2 id="h-B" class="g-letter">B</h2>
+        <dl class="g-list">
+          <div class="g-entry" id="bineo">
+            <dt>Bineo<span class="g-alias" lang="en">Carding / card testing</span></dt>
+            <dd><p>Usar una página de pago para comprobar en masa si tarjetas robadas o generadas a partir de un BIN siguen activas.</p><p class="g-biz"><span>En su negocio</span>Termina en contracargos, comisiones y, a veces, en el bloqueo de su cuenta con el procesador de pagos.</p></dd>
+          </div>
+          <div class="g-entry" id="bug-bounty">
+            <dt>Bug bounty</dt>
+            <dd><p>Programa en el que una empresa paga a investigadores externos por cada vulnerabilidad válida que reporten.</p></dd>
+          </div>
+        </dl>
+      </section>
+      <section class="g-group" id="letra-C" aria-labelledby="h-C">
+        <h2 id="h-C" class="g-letter">C</h2>
+        <dl class="g-list">
+          <div class="g-entry" id="caja-negra-gris-y-blanca">
+            <dt>Caja negra, gris y blanca<span class="g-alias" lang="en">Black, grey, white box</span></dt>
+            <dd><p>Cuánta información recibe el pentester antes de empezar: ninguna (negra), algo como un usuario de prueba (gris) o acceso al código y la documentación (blanca).</p><p class="g-biz"><span>En su negocio</span>Con más información, el pentest encuentra más en menos tiempo.</p></dd>
+          </div>
+          <div class="g-entry" id="carta-de-autorizacion">
+            <dt>Carta de autorización<span class="g-alias" lang="en">Rules of engagement</span></dt>
+            <dd><p>Documento firmado por el dueño del sistema que autoriza las pruebas, define el alcance, los horarios y los contactos de emergencia.</p><p class="g-biz"><span>En su negocio</span>Sin ella, un pentest es legalmente un ataque.</p></dd>
+          </div>
+          <div class="g-entry" id="clickjacking">
+            <dt>Clickjacking</dt>
+            <dd><p>Cargar su sitio dentro de un marco invisible en otra página para engañar al usuario y que haga clic donde no quería.</p></dd>
+          </div>
+          <div class="g-entry" id="content-security-policy">
+            <dt>Content-Security-Policy<span class="g-alias" lang="en">CSP</span></dt>
+            <dd><p>Regla que le dice al navegador de dónde puede cargar scripts, estilos e imágenes un sitio. Bloquea mucho del código inyectado.</p><p class="g-biz"><span>En su negocio</span>Es una de las defensas que usa este mismo sitio.</p></dd>
+          </div>
+          <div class="g-entry" id="credential-stuffing">
+            <dt>Credential stuffing</dt>
+            <dd><p>Probar en su sitio combinaciones de correo y contraseña filtradas de otros servicios, aprovechando que la gente repite contraseñas.</p></dd>
+          </div>
+          <div class="g-entry" id="csrf">
+            <dt>CSRF<span class="g-alias" lang="en">Cross-Site Request Forgery</span></dt>
+            <dd><p>Hacer que el navegador de un usuario con sesión iniciada envíe una acción a su sitio sin que el usuario lo sepa, como cambiar su correo.</p></dd>
+          </div>
+          <div class="g-entry" id="cve">
+            <dt>CVE<span class="g-alias" lang="en">Common Vulnerabilities and Exposures</span></dt>
+            <dd><p>Identificador público de una vulnerabilidad conocida, por ejemplo CVE-2021-44228.</p><p class="g-biz"><span>En su negocio</span>Si su sitio usa software con un CVE sin parchear, cualquiera puede buscar cómo explotarlo.</p></dd>
+          </div>
+          <div class="g-entry" id="cvss">
+            <dt>CVSS</dt>
+            <dd><p>Escala de 0 a 10 para medir la gravedad técnica de una vulnerabilidad: baja, media, alta o crítica.</p></dd>
+          </div>
+        </dl>
+      </section>
+      <section class="g-group" id="letra-D" aria-labelledby="h-D">
+        <h2 id="h-D" class="g-letter">D</h2>
+        <dl class="g-list">
+          <div class="g-entry" id="defacement">
+            <dt>Defacement<span class="g-alias" lang="en">Desfiguración</span></dt>
+            <dd><p>Alterar el contenido visible de un sitio: cambiar la portada, insertar mensajes o anuncios.</p><p class="g-biz"><span>En su negocio</span>Es de los incidentes web más comunes y más dañinos para la reputación.</p></dd>
+          </div>
+          <div class="g-entry" id="denegacion-de-servicio">
+            <dt>Denegación de servicio<span class="g-alias" lang="en">DoS / DDoS</span></dt>
+            <dd><p>Saturar un sitio con solicitudes hasta que deja de responder. DDoS es cuando el ataque viene de muchas máquinas a la vez.</p></dd>
+          </div>
+          <div class="g-entry" id="denial-of-wallet">
+            <dt>Denial of wallet</dt>
+            <dd><p>Abusar de una función que le cuesta dinero cada vez que se usa (SMS, correos, servicios en la nube) para inflar su factura.</p><p class="g-biz"><span>En su negocio</span>Lo encontramos en la recuperación de contraseña de una empresa de encuestas.</p></dd>
+          </div>
+          <div class="g-entry" id="divulgacion-responsable">
+            <dt>Divulgación responsable<span class="g-alias" lang="en">Responsible disclosure</span></dt>
+            <dd><p>Reportar una vulnerabilidad en privado al dueño y darle tiempo de corregirla antes de hacerla pública.</p></dd>
+          </div>
+          <div class="g-entry" id="dos-de-capa-7">
+            <dt>DoS de capa 7<span class="g-alias" lang="en">Application-layer DoS</span></dt>
+            <dd><p>Denegación de servicio dirigida a una función costosa de la aplicación, como un formulario o una búsqueda, en lugar de a la red.</p><p class="g-biz"><span>En su negocio</span>Con pocas solicitudes bien elegidas se puede tumbar un sitio pequeño.</p></dd>
+          </div>
+        </dl>
+      </section>
+      <section class="g-group" id="letra-E" aria-labelledby="h-E">
+        <h2 id="h-E" class="g-letter">E</h2>
+        <dl class="g-list">
+          <div class="g-entry" id="enumeracion">
+            <dt>Enumeración<span class="g-alias" lang="en">Enumeration</span></dt>
+            <dd><p>Descubrir sistemáticamente usuarios, rutas, parámetros o versiones de software de un sitio.</p><p class="g-biz"><span>En su negocio</span>Un mensaje como &quot;este correo no está registrado&quot; ya permite enumerar usuarios.</p></dd>
+          </div>
+          <div class="g-entry" id="escalada-de-privilegios">
+            <dt>Escalada de privilegios<span class="g-alias" lang="en">Privilege escalation</span></dt>
+            <dd><p>Pasar de un nivel de acceso bajo a uno más alto, por ejemplo de cliente a administrador.</p></dd>
+          </div>
+          <div class="g-entry" id="exploit">
+            <dt>Exploit</dt>
+            <dd><p>Código o técnica que aprovecha una vulnerabilidad para lograr algo que no debería ser posible.</p></dd>
+          </div>
+        </dl>
+      </section>
+      <section class="g-group" id="letra-F" aria-labelledby="h-F">
+        <h2 id="h-F" class="g-letter">F</h2>
+        <dl class="g-list">
+          <div class="g-entry" id="falso-positivo">
+            <dt>Falso positivo<span class="g-alias" lang="en">False positive</span></dt>
+            <dd><p>Algo que una herramienta reporta como vulnerabilidad pero que en realidad no lo es.</p><p class="g-biz"><span>En su negocio</span>Los escáneres automáticos generan muchos; las pruebas manuales los descartan.</p></dd>
+          </div>
+          <div class="g-entry" id="fuerza-bruta">
+            <dt>Fuerza bruta<span class="g-alias" lang="en">Brute force</span></dt>
+            <dd><p>Probar todas las combinaciones posibles de una contraseña o código hasta acertar.</p><p class="g-biz"><span>En su negocio</span>Un código de recuperación de 4 dígitos sin límite de intentos cae en minutos.</p></dd>
+          </div>
+        </dl>
+      </section>
+      <section class="g-group" id="letra-H" aria-labelledby="h-H">
+        <h2 id="h-H" class="g-letter">H</h2>
+        <dl class="g-list">
+          <div class="g-entry" id="hardening">
+            <dt>Hardening<span class="g-alias" lang="en">Endurecimiento</span></dt>
+            <dd><p>Configurar un sistema para reducir su superficie de ataque: quitar lo que no se usa, cerrar puertos, limitar permisos.</p></dd>
+          </div>
+          <div class="g-entry" id="hsts">
+            <dt>HSTS<span class="g-alias" lang="en">HTTP Strict Transport Security</span></dt>
+            <dd><p>Encabezado que obliga al navegador a conectarse siempre por HTTPS a un sitio.</p></dd>
+          </div>
+        </dl>
+      </section>
+      <section class="g-group" id="letra-I" aria-labelledby="h-I">
+        <h2 id="h-I" class="g-letter">I</h2>
+        <dl class="g-list">
+          <div class="g-entry" id="idor">
+            <dt>IDOR<span class="g-alias" lang="en">Insecure Direct Object Reference</span></dt>
+            <dd><p>Acceder a datos de otro usuario cambiando un identificador en la URL o en la petición, por ejemplo de /factura/1001 a /factura/1002.</p><p class="g-biz"><span>En su negocio</span>Es de las fallas más frecuentes en aplicaciones con cuentas de usuario.</p></dd>
+          </div>
+          <div class="g-entry" id="inyeccion-sql">
+            <dt>Inyección SQL<span class="g-alias" lang="en">SQLi</span></dt>
+            <dd><p>Introducir código en un campo para que la base de datos ejecute consultas que el desarrollador no previó.</p><p class="g-biz"><span>En su negocio</span>Puede permitir leer o borrar toda la base de datos.</p></dd>
+          </div>
+        </dl>
+      </section>
+      <section class="g-group" id="letra-J" aria-labelledby="h-J">
+        <h2 id="h-J" class="g-letter">J</h2>
+        <dl class="g-list">
+          <div class="g-entry" id="jwt">
+            <dt>JWT<span class="g-alias" lang="en">JSON Web Token</span></dt>
+            <dd><p>Formato de token muy usado para mantener sesiones en APIs. Si está mal validado, se puede falsificar.</p></dd>
+          </div>
+        </dl>
+      </section>
+      <section class="g-group" id="letra-O" aria-labelledby="h-O">
+        <h2 id="h-O" class="g-letter">O</h2>
+        <dl class="g-list">
+          <div class="g-entry" id="owasp-top-10">
+            <dt>OWASP Top 10</dt>
+            <dd><p>Lista de referencia de las diez categorías de riesgo más críticas en aplicaciones web, publicada por la fundación OWASP.</p></dd>
+          </div>
+        </dl>
+      </section>
+      <section class="g-group" id="letra-P" aria-labelledby="h-P">
+        <h2 id="h-P" class="g-letter">P</h2>
+        <dl class="g-list">
+          <div class="g-entry" id="path-traversal">
+            <dt>Path traversal<span class="g-alias" lang="en">LFI</span></dt>
+            <dd><p>Manipular una ruta de archivo, por ejemplo con ../, para leer archivos del servidor que no deberían ser accesibles.</p></dd>
+          </div>
+          <div class="g-entry" id="payload">
+            <dt>Payload<span class="g-alias" lang="en">Carga útil</span></dt>
+            <dd><p>La parte de un ataque que hace el daño: el script inyectado, la consulta SQL maliciosa, el comando a ejecutar.</p></dd>
+          </div>
+          <div class="g-entry" id="pentest">
+            <dt>Pentest<span class="g-alias" lang="en">Prueba de penetración</span></dt>
+            <dd><p>Ataque controlado y autorizado contra un sistema para encontrar vulnerabilidades antes que un atacante real.</p></dd>
+          </div>
+          <div class="g-entry" id="poc">
+            <dt>PoC<span class="g-alias" lang="en">Proof of Concept</span></dt>
+            <dd><p>Demostración mínima de que una vulnerabilidad es explotable de verdad.</p><p class="g-biz"><span>En su negocio</span>En el informe, la PoC es lo que convence a su equipo de que el problema existe.</p></dd>
+          </div>
+        </dl>
+      </section>
+      <section class="g-group" id="letra-R" aria-labelledby="h-R">
+        <h2 id="h-R" class="g-letter">R</h2>
+        <dl class="g-list">
+          <div class="g-entry" id="rate-limiting">
+            <dt>Rate limiting<span class="g-alias" lang="en">Límite de intentos</span></dt>
+            <dd><p>Limitar cuántas solicitudes puede hacer un usuario o una IP en cierto tiempo.</p><p class="g-biz"><span>En su negocio</span>Es la defensa básica contra fuerza bruta y abuso de formularios.</p></dd>
+          </div>
+          <div class="g-entry" id="rce">
+            <dt>RCE<span class="g-alias" lang="en">Remote Code Execution</span></dt>
+            <dd><p>Ejecutar comandos en el servidor a distancia. Es de las fallas más graves: equivale a tomar el control.</p></dd>
+          </div>
+          <div class="g-entry" id="re-prueba">
+            <dt>Re-prueba<span class="g-alias" lang="en">Retest</span></dt>
+            <dd><p>Volver a probar cada hallazgo después de que el cliente aplicó las correcciones, para confirmar que quedaron cerradas.</p><p class="g-biz"><span>En su negocio</span>Está incluida en todos mis servicios.</p></dd>
+          </div>
+          <div class="g-entry" id="reconocimiento">
+            <dt>Reconocimiento<span class="g-alias" lang="en">Recon</span></dt>
+            <dd><p>Primera fase de un pentest: reunir información pública sobre el objetivo antes de atacar.</p></dd>
+          </div>
+        </dl>
+      </section>
+      <section class="g-group" id="letra-S" aria-labelledby="h-S">
+        <h2 id="h-S" class="g-letter">S</h2>
+        <dl class="g-list">
+          <div class="g-entry" id="secuestro-de-sesion">
+            <dt>Secuestro de sesión<span class="g-alias" lang="en">Session hijacking</span></dt>
+            <dd><p>Robar o adivinar el identificador de sesión de un usuario para entrar como él sin conocer su contraseña.</p></dd>
+          </div>
+          <div class="g-entry" id="securitytxt">
+            <dt>security.txt</dt>
+            <dd><p>Archivo estándar en /.well-known/security.txt que indica cómo reportar vulnerabilidades de un sitio.</p></dd>
+          </div>
+          <div class="g-entry" id="ssrf">
+            <dt>SSRF<span class="g-alias" lang="en">Server-Side Request Forgery</span></dt>
+            <dd><p>Hacer que el servidor haga peticiones a direcciones que elige el atacante, a veces a sistemas internos.</p></dd>
+          </div>
+          <div class="g-entry" id="superficie-de-ataque">
+            <dt>Superficie de ataque<span class="g-alias" lang="en">Attack surface</span></dt>
+            <dd><p>Todo lo que un atacante puede tocar: formularios, APIs, paneles, subdominios, servicios expuestos.</p><p class="g-biz"><span>En su negocio</span>Menos superficie significa menos puntos que defender.</p></dd>
+          </div>
+        </dl>
+      </section>
+      <section class="g-group" id="letra-W" aria-labelledby="h-W">
+        <h2 id="h-W" class="g-letter">W</h2>
+        <dl class="g-list">
+          <div class="g-entry" id="waf">
+            <dt>WAF<span class="g-alias" lang="en">Web Application Firewall</span></dt>
+            <dd><p>Filtro que se pone delante de un sitio para bloquear ataques conocidos. Ayuda, pero no sustituye corregir el código.</p></dd>
+          </div>
+          <div class="g-entry" id="webshell">
+            <dt>Webshell</dt>
+            <dd><p>Script que un atacante sube a un servidor comprometido para controlarlo desde el navegador.</p></dd>
+          </div>
+        </dl>
+      </section>
+      <section class="g-group" id="letra-X" aria-labelledby="h-X">
+        <h2 id="h-X" class="g-letter">X</h2>
+        <dl class="g-list">
+          <div class="g-entry" id="xss">
+            <dt>XSS<span class="g-alias" lang="en">Cross-Site Scripting</span></dt>
+            <dd><p>Inyectar JavaScript en una página para que se ejecute en el navegador de otros visitantes. Puede ser reflejado, almacenado o basado en DOM.</p><p class="g-biz"><span>En su negocio</span>Fue la falla del caso de la escuela que terminó mostrando anuncios.</p></dd>
+          </div>
+        </dl>
+      </section>
+      <section class="g-group" id="letra-Z" aria-labelledby="h-Z">
+        <h2 id="h-Z" class="g-letter">Z</h2>
+        <dl class="g-list">
+          <div class="g-entry" id="zero-day">
+            <dt>Zero-day<span class="g-alias" lang="en">0-day</span></dt>
+            <dd><p>Vulnerabilidad que todavía no conoce el fabricante y para la que no existe parche.</p></dd>
+          </div>
+        </dl>
+      </section>
+    </div>
+
+    <section id="contacto" class="cta-band" aria-labelledby="contacto-title">
+      <div class="container cta-grid">
+        <div>
+          <h2 id="contacto-title">¿Le llegó un informe lleno de estos términos?</h2>
+          <p>Se lo explico en una llamada de 20 minutos, sin costo.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary btn-cta" href="#contacto" data-wa="llamada"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span>Agendar llamada por WhatsApp</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="mobile-cta"><a class="btn btn-primary btn-cta" href="#contacto" data-wa="llamada"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span>Agendar llamada gratis</span></a></div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> Pentesting web · México</p>
+      <ul class="footer-links" aria-label="Enlaces">
+        <li><a href="glosario.html">Glosario</a></li>
+        <li><a href="pentest-web-puebla.html">Puebla</a></li>
+        <li><a href="pentest-web-cdmx.html">CDMX</a></li>
+        <li><a href="pentest-web-monterrey.html">Monterrey</a></li>
+        <li><a href="en/index.html" hreflang="en" lang="en">English</a></li>
+        <li><a href=".well-known/security.txt">security.txt</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script src="main.js" defer></script>
+</body>
+</html>
