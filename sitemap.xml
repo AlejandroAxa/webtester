@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://alejandroaxa.github.io/webtester/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://alejandroaxa.github.io/webtester/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alejandroaxa.github.io/webtester/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alejandroaxa.github.io/webtester/"/>
+  </url>
+  <url>
+    <loc>https://alejandroaxa.github.io/webtester/en/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://alejandroaxa.github.io/webtester/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alejandroaxa.github.io/webtester/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alejandroaxa.github.io/webtester/"/>
+  </url>
+  <url>
+    <loc>https://alejandroaxa.github.io/webtester/glosario.html</loc>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+  <url>
+    <loc>https://alejandroaxa.github.io/webtester/pentest-web-puebla.html</loc>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+  <url>
+    <loc>https://alejandroaxa.github.io/webtester/pentest-web-cdmx.html</loc>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+  <url>
+    <loc>https://alejandroaxa.github.io/webtester/pentest-web-monterrey.html</loc>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+</urlset>
