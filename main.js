@@ -35,3 +35,52 @@ document.querySelectorAll("a[data-wa]").forEach((link) => {
 const year = document.getElementById("year");
 if (year) year.textContent = String(new Date().getFullYear());
 
+
+// ==========================================================
+// Frase grande que se revela palabra por palabra al hacer scroll
+// ==========================================================
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const revealBlocks = document.querySelectorAll("[data-reveal]");
+
+if (!reduceMotion && revealBlocks.length) {
+  const wrapWords = (node) => {
+    node.childNodes.forEach((child) => {
+      if (child.nodeType === Node.TEXT_NODE) {
+        const frag = document.createDocumentFragment();
+        child.textContent.split(/(\s+)/).forEach((part) => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.append(part); return; }
+          const span = document.createElement("span");
+          span.className = "w";
+          span.textContent = part;
+          frag.append(span);
+        });
+        child.replaceWith(frag);
+      } else if (child.nodeType === Node.ELEMENT_NODE) {
+        wrapWords(child);
+      }
+    });
+  };
+
+  const blocks = [...revealBlocks].map((el) => {
+    wrapWords(el);
+    return { el, words: el.querySelectorAll(".w") };
+  });
+  document.documentElement.classList.add("js-reveal");
+
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    const vh = window.innerHeight;
+    blocks.forEach(({ el, words }) => {
+      const r = el.getBoundingClientRect();
+      const progress = Math.min(1, Math.max(0, (vh * 0.9 - r.top) / (r.height + vh * 0.35)));
+      const lit = Math.round(progress * words.length);
+      words.forEach((w, i) => w.classList.toggle("on", i < lit));
+    });
+  };
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  update();
+}
